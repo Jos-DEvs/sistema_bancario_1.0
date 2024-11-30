@@ -25,7 +25,7 @@ while 1 == 1:
 
     elif opcao == "s":
         if numero_saques >= 3:      # Nem deixar entrar um valor se o número máximo de saques foi  excedido
-            print("Operação falhou! Número máximo de saques excedido.")
+            print("Operação falhou! O número máximo de saques já foi excedid.")
                     
         elif saldo == 0:
             print("Operação falhou! Você precisa fazer um depósito primeiro para poder sacar.")
