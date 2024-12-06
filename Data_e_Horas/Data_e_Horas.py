@@ -13,8 +13,6 @@ operacao = {"saldo": 0, "numero_saques": 0, "limite_saques": 10, "inicio": 0, "r
 titulo = "EXTRATO"
 hora_limite_de_operacao = " "
 iteracao = 0
-tipo_transacao = " "
-
 
 while 1 == 1:
     
@@ -97,8 +95,7 @@ while 1 == 1:
                                     
                     if iteracao == 0:
                         print(f"{valor['tipo']}:\n{valor['valor']:>15} {11 * '-'} {valor['data']:>17}") # Alinhar o texto a direita
-                        iteracao = 1                        
-                        tipo_transacao = valor['tipo']
+                        iteracao = 1
                     else:
                         if valor['tipo'].strip().lower() == "deposito":
                             print(f"{valor['valor']:>15} {11 * '-'} {valor['data']:>17}") # Alinhar o texto a direita
