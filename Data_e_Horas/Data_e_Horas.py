@@ -33,7 +33,7 @@ while 1 == 1:
         if valor > 0:
             operacao["saldo"] += valor
             
-            operacao[f"extrato{i}"] = {"tipo": "Depósito", "valor": f"{valor}", "data": f"{relogio()}"}            
+            operacao[f"extrato{i}"] = {"tipo": "deposito", "valor": f"{valor}", "data": f"{relogio()}"}            
             i += 1
             print(f'{"Deposito realizado com succeso!":=^50}') # Centralizar o texto
             pe_pagina = f"{relogio()}: DEPOSITAR"
@@ -93,14 +93,14 @@ while 1 == 1:
             print(f"\n {titulo:=^50}") # Centralizar o texto 
             
             for chave, valor in operacao.items():
-                if chave.startswith('extrato'):                            
-                                                
+                if chave.startswith('extrato'):  
+                                    
                     if iteracao == 0:
                         print(f"{valor['tipo']}:\n{valor['valor']:>15} {11 * '-'} {valor['data']:>17}") # Alinhar o texto a direita
                         iteracao = 1                        
                         tipo_transacao = valor['tipo']
                     else:
-                        if valor['tipo'] == tipo_transacao:
+                        if valor['tipo'].strip().lower() == "deposito":
                             print(f"{valor['valor']:>15} {11 * '-'} {valor['data']:>17}") # Alinhar o texto a direita
                                                     
                         elif valor['tipo'].strip().lower() == "saque" and iteracao == 1:
@@ -113,6 +113,7 @@ while 1 == 1:
             print(f"\nSaldo: R$ {operacao["saldo"]:.2f}")
             print("=" * 50)
             pe_pagina = f"{relogio()}: EXIBIR EXTRATO"
+            iteracao = 0
             print(f"{pe_pagina:>50}") # Alinhar o texto a direita
             
     # Sair do aplicativo
